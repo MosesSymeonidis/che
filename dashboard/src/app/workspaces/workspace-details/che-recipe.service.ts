@@ -39,7 +39,7 @@ export class CheRecipeService {
    * @returns {boolean}
    */
   isScalable(recipe: che.IRecipe): boolean {
-    return this.isCompose(recipe) || this.isOpenshift(recipe);
+    return this.isCompose(recipe) || this.isKubernetes(recipe) || this.isOpenshift(recipe);
   }
 
   /**
@@ -54,6 +54,17 @@ export class CheRecipeService {
       return false;
     }
     return CheRecipeTypes.getValues().indexOf(recipeType) !== -1;
+  }
+
+  /**
+   * Returns true if the environment's recipe type is kubernetes.
+   *
+   * @param {che.IRecipe} recipe
+   * @returns {boolean}
+   */
+  isKubernetes(recipe: che.IRecipe): boolean {
+    const recipeType = this.getRecipeType(recipe);
+    return recipeType === null ? false : recipeType === CheRecipeTypes.KUBERNETES;
   }
 
   /**
