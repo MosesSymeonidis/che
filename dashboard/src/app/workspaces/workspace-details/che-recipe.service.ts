@@ -28,7 +28,7 @@ export class CheRecipeService {
   /**
    * Default constructor that is using resource
    */
-  constructor ($log: ng.ILogService) {
+  constructor($log: ng.ILogService) {
     this.$log = $log;
   }
 
@@ -63,8 +63,7 @@ export class CheRecipeService {
    * @returns {boolean}
    */
   isKubernetes(recipe: che.IRecipe): boolean {
-    const recipeType = this.getRecipeType(recipe);
-    return recipeType === null ? false : recipeType === CheRecipeTypes.KUBERNETES;
+    return this.getRecipeType(recipe) === CheRecipeTypes.KUBERNETES;
   }
 
   /**
@@ -74,8 +73,7 @@ export class CheRecipeService {
    * @returns {boolean}
    */
   isOpenshift(recipe: che.IRecipe): boolean {
-    const recipeType = this.getRecipeType(recipe);
-    return recipeType === null ? false : recipeType === CheRecipeTypes.OPENSHIFT;
+    return this.getRecipeType(recipe) === CheRecipeTypes.OPENSHIFT;
   }
 
   /**
@@ -85,8 +83,7 @@ export class CheRecipeService {
    * @returns {boolean}
    */
   isCompose(recipe: che.IRecipe): boolean {
-    const recipeType = this.getRecipeType(recipe);
-    return recipeType === null ? false : recipeType === CheRecipeTypes.COMPOSE;
+    return this.getRecipeType(recipe) === CheRecipeTypes.COMPOSE;
   }
 
   /**
@@ -96,8 +93,7 @@ export class CheRecipeService {
    * @returns {boolean}
    */
   isDockerfile(recipe: che.IRecipe): boolean {
-    const recipeType = this.getRecipeType(recipe);
-    return recipeType === null ? false : recipeType === CheRecipeTypes.DOCKERFILE;
+    return this.getRecipeType(recipe) === CheRecipeTypes.DOCKERFILE;
   }
 
   /**
@@ -107,8 +103,7 @@ export class CheRecipeService {
    * @returns {boolean}
    */
   isDockerimage(recipe: che.IRecipe): boolean {
-    const recipeType = this.getRecipeType(recipe);
-    return recipeType === null ? false : recipeType === CheRecipeTypes.DOCKERIMAGE;
+    return this.getRecipeType(recipe) === CheRecipeTypes.DOCKERIMAGE;
   }
 
   /**
